@@ -4,6 +4,8 @@ We finished 1st overall at CSCTF 2026: Total Warfare, out of 645 teams on the sc
 
 CSCTF 2026: Total Warfare was a 48-hour online CTF run by Chronos Security from November 6 to 8, 2026, built around real-world attacks on energy, telecom, healthcare, finance and defense systems. This repo holds a writeup for every challenge.
 
+![CSCTF 2026 final scoreboard: secret.team 1st of 645 teams with 30,861 points](screenshots/csctf-scoreboard.png)
+
 ## The team
 
 | Player | Flags submitted | Points |
@@ -63,7 +65,7 @@ These were the highest-value solves on our board:
 
 - `secret.team-CSCTF2026-writeup.md`: the full team writeup, with our methodology and all 108 challenges in one file.
 - `writeups/<category>/`: the same writeups, one file per challenge.
-- `screenshots/`: workflow screenshots referenced in the team writeup.
+- `screenshots/`: the final scoreboard, and the workflow screenshots referenced in the team writeup.
 
 ## Notes
 
