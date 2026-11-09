@@ -80,8 +80,8 @@ direction, judgment calls and submission policy.
   following it — then wrote a short script to make the exploit exact and repeatable: `urllib` +
   `hmac`/`hashlib`/`base64` for JWT forging (Key Custody), `concurrent.futures` for the approval race
   (Two-Key Turn), and a raw `socket`/`struct` WebSocket-and-HSP client for the Helioform protocol chain.
-  `jwt.io` was the first, manual pass on Key Custody before he scripted it; `gobuster` was used for
-  content discovery where a service warranted it.
+  `jwt.io` was the first, manual pass on Key Custody before he scripted it; `gobuster` and `ffuf` were used
+  for content discovery where a service warranted it.
 - **What he checked before submission.** Each flag came straight from the live service response — the
   `/admin/recovery-key` body, the order's `arming_authorization`, the runbook output on
   `/console/automation` — and each solve ships with the script that reproduces it end to end.

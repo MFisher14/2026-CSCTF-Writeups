@@ -7,7 +7,7 @@
 
 - Python 3  (`urllib`, `http.cookiejar`, JSON/base64); the solver automates requests and carries cookies and `X-Chain` proofs.
 - `gobuster`
-- `fuff`
+- `ffuf`
 
 **Approach**
 
