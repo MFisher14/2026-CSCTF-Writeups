@@ -1,6 +1,6 @@
 # secret.team at CSCTF 2026: Total Warfare
 
-We finished 1st of 294 teams in the Fighters division at CSCTF 2026, with 30,861 points and all 108 challenges solved.
+We finished 1st overall at CSCTF 2026: Total Warfare, out of 645 teams on the scoreboard (1,015 registered), and 1st of 294 in the Fighters division, with 30,861 points and all 108 challenges solved.
 
 CSCTF 2026: Total Warfare was a 48-hour online CTF run by Chronos Security from November 6 to 8, 2026, built around real-world attacks on energy, telecom, healthcare, finance and defense systems. This repo holds a writeup for every challenge.
 
